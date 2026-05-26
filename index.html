@@ -1,0 +1,1227 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Graham Hensher – EMEA Pre-Sales & Professional Services Leader</title>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700;900&family=DM+Sans:wght@300;400;500;600&display=swap" rel="stylesheet">
+<style>
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+  :root {
+    --navy: #0F1C2E;
+    --navy-mid: #1A2E48;
+    --navy-light: #243D5C;
+    --slate: #2E4A6A;
+    --gold: #C9A84C;
+    --gold-light: #E0BE7A;
+    --gold-pale: #F5EDD4;
+    --teal: #1D9E75;
+    --teal-light: #5DCAA5;
+    --cream: #FAF8F4;
+    --white: #FFFFFF;
+    --text-dark: #0F1C2E;
+    --text-mid: #3A5070;
+    --text-muted: #6B84A0;
+    --border: rgba(15,28,46,0.1);
+  }
+
+  html { scroll-behavior: smooth; }
+
+  body {
+    font-family: 'DM Sans', sans-serif;
+    background: var(--cream);
+    color: var(--text-dark);
+    font-size: 16px;
+    line-height: 1.7;
+  }
+
+  /* NAV */
+  nav {
+    position: fixed;
+    top: 0; left: 0; right: 0;
+    z-index: 100;
+    background: rgba(15,28,46,0.97);
+    backdrop-filter: blur(12px);
+    padding: 0 3rem;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    height: 60px;
+    border-bottom: 1px solid rgba(201,168,76,0.2);
+  }
+
+  .nav-logo {
+    font-family: 'Playfair Display', serif;
+    font-size: 1.1rem;
+    color: var(--gold);
+    letter-spacing: 0.02em;
+  }
+
+  .nav-links {
+    display: flex;
+    gap: 2rem;
+    list-style: none;
+  }
+
+  .nav-links a {
+    color: rgba(255,255,255,0.7);
+    text-decoration: none;
+    font-size: 0.82rem;
+    font-weight: 500;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    transition: color 0.2s;
+  }
+
+  .nav-links a:hover { color: var(--gold-light); }
+
+  /* DROPDOWN */
+  .nav-item { position: relative; list-style: none; }
+
+  .nav-item .dropdown {
+    display: none;
+    position: absolute;
+    top: 100%;
+    left: 50%;
+    transform: translateX(-50%);
+    padding-top: 10px;
+    min-width: 180px;
+    z-index: 200;
+  }
+
+  .nav-item .dropdown::before {
+    content: '';
+    position: absolute;
+    top: 0; left: 0; right: 0;
+    height: 10px;
+  }
+
+  .nav-item .dropdown-inner {
+    background: rgba(15,28,46,0.98);
+    border: 1px solid rgba(201,168,76,0.25);
+    border-radius: 6px;
+    padding: 0.5rem 0;
+  }
+
+  .nav-item:hover .dropdown,
+  .nav-item:focus-within .dropdown { display: block; }
+
+  .dropdown .dropdown-inner a {
+    display: block;
+    padding: 0.6rem 1.2rem;
+    font-size: 0.8rem;
+    color: rgba(255,255,255,0.65);
+    text-decoration: none;
+    font-weight: 500;
+    letter-spacing: 0.06em;
+    text-transform: uppercase;
+    white-space: nowrap;
+    transition: color 0.15s, background 0.15s;
+  }
+
+  .dropdown .dropdown-inner a:hover { color: var(--gold-light); background: rgba(255,255,255,0.04); }
+
+  .nav-arrow {
+    display: inline-block;
+    margin-left: 3px;
+    font-size: 0.65rem;
+    vertical-align: middle;
+    opacity: 0.6;
+    transition: transform 0.2s;
+  }
+
+  .nav-item:hover .nav-arrow { transform: rotate(180deg); opacity: 1; }
+
+  /* HERO */
+  .hero {
+    min-height: 100vh;
+    background: linear-gradient(160deg, var(--navy) 0%, var(--navy-mid) 55%, var(--slate) 100%);
+    display: flex;
+    align-items: center;
+    position: relative;
+    overflow: hidden;
+    padding: 100px 3rem 4rem;
+  }
+
+  .hero::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background-image: radial-gradient(ellipse 70% 60% at 80% 50%, rgba(29,158,117,0.08) 0%, transparent 70%),
+                      radial-gradient(ellipse 40% 40% at 20% 80%, rgba(201,168,76,0.06) 0%, transparent 60%);
+  }
+
+  .hero-grid {
+    position: relative;
+    max-width: 1100px;
+    margin: 0 auto;
+    width: 100%;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 5rem;
+    align-items: center;
+  }
+
+  .hero-eyebrow {
+    font-size: 0.78rem;
+    font-weight: 600;
+    letter-spacing: 0.15em;
+    text-transform: uppercase;
+    color: var(--gold);
+    margin-bottom: 1.2rem;
+  }
+
+  .hero-name {
+    font-family: 'Playfair Display', serif;
+    font-size: clamp(2.8rem, 5vw, 4.2rem);
+    font-weight: 900;
+    line-height: 1.08;
+    color: var(--white);
+    margin-bottom: 1.2rem;
+  }
+
+  .hero-title {
+    font-size: 1.05rem;
+    color: var(--teal-light);
+    font-weight: 400;
+    margin-bottom: 2rem;
+    line-height: 1.5;
+  }
+
+  .hero-summary {
+    font-size: 0.95rem;
+    color: rgba(255,255,255,0.65);
+    line-height: 1.8;
+    margin-bottom: 2.5rem;
+    max-width: 480px;
+  }
+
+  .hero-cta-row {
+    display: flex;
+    gap: 1rem;
+    flex-wrap: wrap;
+  }
+
+  .btn-gold {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+    background: var(--gold);
+    color: var(--navy);
+    font-weight: 600;
+    font-size: 0.88rem;
+    padding: 0.75rem 1.75rem;
+    border-radius: 4px;
+    text-decoration: none;
+    letter-spacing: 0.04em;
+    transition: background 0.2s, transform 0.15s;
+    border: none;
+    cursor: pointer;
+  }
+
+  .btn-gold:hover { background: var(--gold-light); transform: translateY(-1px); }
+
+  .btn-outline {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+    background: transparent;
+    color: rgba(255,255,255,0.8);
+    font-weight: 500;
+    font-size: 0.88rem;
+    padding: 0.75rem 1.75rem;
+    border-radius: 4px;
+    text-decoration: none;
+    letter-spacing: 0.04em;
+    border: 1px solid rgba(255,255,255,0.25);
+    transition: border-color 0.2s, color 0.2s;
+  }
+
+  .btn-outline:hover { border-color: var(--gold); color: var(--gold-light); }
+
+  /* HERO STATS */
+  .hero-stats {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 1.5rem;
+  }
+
+  .stat-card {
+    background: rgba(255,255,255,0.05);
+    border: 1px solid rgba(201,168,76,0.2);
+    border-radius: 8px;
+    padding: 1.5rem;
+  }
+
+  .stat-card.accent { border-color: rgba(29,158,117,0.4); background: rgba(29,158,117,0.06); }
+
+  .stat-number {
+    font-family: 'Playfair Display', serif;
+    font-size: 2.2rem;
+    font-weight: 700;
+    color: var(--gold);
+    line-height: 1;
+    margin-bottom: 0.4rem;
+  }
+
+  .stat-card.accent .stat-number { color: var(--teal-light); }
+
+  .stat-label {
+    font-size: 0.82rem;
+    color: rgba(255,255,255,0.55);
+    line-height: 1.4;
+  }
+
+  /* INVESTSIGHT HERO PAGE */
+  #investsight {
+    padding: 6rem 3rem;
+    background: var(--navy);
+    position: relative;
+    overflow: hidden;
+  }
+
+  #investsight::before {
+    content: '';
+    position: absolute;
+    top: -100px; right: -100px;
+    width: 500px; height: 500px;
+    border-radius: 50%;
+    background: radial-gradient(circle, rgba(29,158,117,0.1) 0%, transparent 70%);
+  }
+
+  .investsight-inner {
+    max-width: 1100px;
+    margin: 0 auto;
+    position: relative;
+  }
+
+  .section-label {
+    display: inline-block;
+    font-size: 0.75rem;
+    font-weight: 600;
+    letter-spacing: 0.15em;
+    text-transform: uppercase;
+    padding: 0.35rem 0.9rem;
+    border-radius: 2px;
+    margin-bottom: 1.5rem;
+  }
+
+  .label-gold { background: rgba(201,168,76,0.15); color: var(--gold); }
+  .label-teal { background: rgba(29,158,117,0.15); color: var(--teal-light); }
+  .label-blue { background: rgba(55,138,221,0.12); color: #85B7EB; }
+
+  .investsight-heading {
+    font-family: 'Playfair Display', serif;
+    font-size: clamp(2rem, 4vw, 3rem);
+    font-weight: 700;
+    color: var(--white);
+    line-height: 1.15;
+    margin-bottom: 1.5rem;
+  }
+
+  .investsight-heading span { color: var(--teal-light); }
+
+  .investsight-description {
+    font-size: 1rem;
+    color: rgba(255,255,255,0.65);
+    max-width: 680px;
+    line-height: 1.8;
+    margin-bottom: 3rem;
+  }
+
+  .investsight-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 1.5rem;
+    margin-bottom: 3rem;
+  }
+
+  .feature-card {
+    background: rgba(255,255,255,0.04);
+    border: 1px solid rgba(255,255,255,0.08);
+    border-radius: 8px;
+    padding: 1.75rem;
+    transition: border-color 0.2s, background 0.2s;
+  }
+
+  .feature-card:hover { border-color: rgba(29,158,117,0.35); background: rgba(29,158,117,0.04); }
+
+  .feature-icon {
+    width: 44px; height: 44px;
+    border-radius: 8px;
+    background: rgba(29,158,117,0.15);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1.3rem;
+    margin-bottom: 1rem;
+    color: var(--teal-light);
+  }
+
+  .feature-title {
+    font-weight: 600;
+    font-size: 0.95rem;
+    color: var(--white);
+    margin-bottom: 0.5rem;
+  }
+
+  .feature-desc {
+    font-size: 0.85rem;
+    color: rgba(255,255,255,0.5);
+    line-height: 1.6;
+  }
+
+  .investsight-placeholder {
+    background: rgba(255,255,255,0.03);
+    border: 1px dashed rgba(201,168,76,0.3);
+    border-radius: 8px;
+    padding: 3rem;
+    text-align: center;
+  }
+
+  .investsight-placeholder p {
+    color: rgba(255,255,255,0.35);
+    font-size: 0.9rem;
+    margin-bottom: 1rem;
+  }
+
+  /* LIGHT SECTIONS */
+  .light-section {
+    padding: 6rem 3rem;
+    background: var(--cream);
+  }
+
+  .light-section.alt { background: var(--white); }
+
+  .section-inner {
+    max-width: 1100px;
+    margin: 0 auto;
+  }
+
+  .section-header {
+    margin-bottom: 3.5rem;
+  }
+
+  .section-eyebrow {
+    font-size: 0.75rem;
+    font-weight: 600;
+    letter-spacing: 0.15em;
+    text-transform: uppercase;
+    color: var(--teal);
+    margin-bottom: 0.75rem;
+  }
+
+  .section-title {
+    font-family: 'Playfair Display', serif;
+    font-size: clamp(1.8rem, 3vw, 2.6rem);
+    font-weight: 700;
+    color: var(--navy);
+    line-height: 1.2;
+  }
+
+  .section-subtitle {
+    font-size: 1rem;
+    color: var(--text-muted);
+    max-width: 600px;
+    margin-top: 0.75rem;
+    line-height: 1.7;
+  }
+
+  /* EXPERIENCE TIMELINE */
+  .timeline {
+    position: relative;
+    padding-left: 2rem;
+  }
+
+  .timeline::before {
+    content: '';
+    position: absolute;
+    left: 0; top: 8px; bottom: 0;
+    width: 2px;
+    background: linear-gradient(to bottom, var(--gold), var(--teal), transparent);
+  }
+
+  .timeline-item {
+    position: relative;
+    padding: 0 0 3rem 2rem;
+  }
+
+  .timeline-dot {
+    position: absolute;
+    left: -2.35rem;
+    top: 6px;
+    width: 12px; height: 12px;
+    border-radius: 50%;
+    background: var(--gold);
+    border: 2px solid var(--cream);
+    box-shadow: 0 0 0 3px rgba(201,168,76,0.2);
+  }
+
+  .timeline-item.teal .timeline-dot { background: var(--teal); box-shadow: 0 0 0 3px rgba(29,158,117,0.2); }
+
+  .timeline-meta {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    margin-bottom: 0.5rem;
+    flex-wrap: wrap;
+  }
+
+  .timeline-date {
+    font-size: 0.78rem;
+    font-weight: 600;
+    color: var(--text-muted);
+    letter-spacing: 0.06em;
+    text-transform: uppercase;
+  }
+
+  .timeline-company {
+    font-size: 0.78rem;
+    font-weight: 600;
+    letter-spacing: 0.06em;
+    text-transform: uppercase;
+    padding: 0.2rem 0.7rem;
+    border-radius: 3px;
+    background: var(--gold-pale);
+    color: var(--navy);
+  }
+
+  .timeline-role {
+    font-size: 1.15rem;
+    font-weight: 600;
+    color: var(--navy);
+    margin-bottom: 0.75rem;
+    line-height: 1.3;
+  }
+
+  .timeline-body {
+    font-size: 0.92rem;
+    color: var(--text-mid);
+    line-height: 1.75;
+    max-width: 720px;
+  }
+
+  .timeline-highlights {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.5rem;
+    margin-top: 1rem;
+  }
+
+  .tag {
+    font-size: 0.75rem;
+    padding: 0.25rem 0.7rem;
+    border-radius: 3px;
+    font-weight: 500;
+    background: rgba(29,158,117,0.08);
+    color: var(--teal);
+    border: 1px solid rgba(29,158,117,0.15);
+  }
+
+  .tag.blue {
+    background: rgba(55,138,221,0.08);
+    color: #185FA5;
+    border-color: rgba(55,138,221,0.15);
+  }
+
+  /* SKILLS */
+  .skills-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+    gap: 1.5rem;
+  }
+
+  .skill-group {
+    background: var(--white);
+    border: 1px solid var(--border);
+    border-radius: 8px;
+    padding: 1.5rem;
+  }
+
+  .skill-group-title {
+    font-size: 0.8rem;
+    font-weight: 600;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    color: var(--text-muted);
+    margin-bottom: 1rem;
+    padding-bottom: 0.75rem;
+    border-bottom: 1px solid var(--border);
+  }
+
+  .skill-list {
+    list-style: none;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.5rem;
+  }
+
+  .skill-pill {
+    font-size: 0.82rem;
+    padding: 0.3rem 0.75rem;
+    border-radius: 4px;
+    background: var(--cream);
+    color: var(--text-mid);
+    font-weight: 500;
+  }
+
+  /* RECOMMENDATIONS */
+  .recs-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 1.5rem;
+  }
+
+  .rec-card {
+    background: var(--white);
+    border: 1px solid var(--border);
+    border-radius: 8px;
+    padding: 1.75rem;
+    position: relative;
+  }
+
+  .rec-card::before {
+    content: '"';
+    font-family: 'Playfair Display', serif;
+    font-size: 4rem;
+    line-height: 1;
+    color: var(--gold-pale);
+    position: absolute;
+    top: 1rem; right: 1.5rem;
+    font-weight: 700;
+  }
+
+  .rec-quote {
+    font-size: 0.9rem;
+    color: var(--text-mid);
+    line-height: 1.75;
+    margin-bottom: 1.25rem;
+    font-style: italic;
+  }
+
+  .rec-author {
+    display: flex;
+    flex-direction: column;
+    gap: 0.15rem;
+    border-top: 1px solid var(--border);
+    padding-top: 1rem;
+  }
+
+  .rec-name { font-weight: 600; font-size: 0.88rem; color: var(--navy); }
+  .rec-role { font-size: 0.78rem; color: var(--text-muted); }
+
+  /* ACHIEVEMENTS */
+  .awards-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 1rem;
+  }
+
+  .award-item {
+    display: flex;
+    align-items: flex-start;
+    gap: 0.75rem;
+    padding: 1rem;
+    background: var(--white);
+    border: 1px solid var(--border);
+    border-radius: 6px;
+  }
+
+  .award-dot {
+    width: 8px; height: 8px;
+    min-width: 8px;
+    border-radius: 50%;
+    background: var(--gold);
+    margin-top: 6px;
+  }
+
+  .award-text {
+    font-size: 0.85rem;
+    color: var(--text-mid);
+    line-height: 1.5;
+  }
+
+  /* EDUCATION */
+  .edu-row {
+    display: flex;
+    gap: 2rem;
+    flex-wrap: wrap;
+  }
+
+  .edu-card {
+    flex: 1;
+    min-width: 260px;
+    background: var(--white);
+    border: 1px solid var(--border);
+    border-radius: 8px;
+    padding: 1.75rem;
+  }
+
+  .edu-card.featured {
+    border-left: 3px solid var(--gold);
+  }
+
+  .edu-degree {
+    font-weight: 600;
+    font-size: 1rem;
+    color: var(--navy);
+    margin-bottom: 0.25rem;
+  }
+
+  .edu-inst {
+    font-size: 0.88rem;
+    color: var(--teal);
+    font-weight: 500;
+    margin-bottom: 0.75rem;
+  }
+
+  .edu-detail {
+    font-size: 0.82rem;
+    color: var(--text-muted);
+    line-height: 1.6;
+  }
+
+  .training-list {
+    list-style: none;
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+  }
+
+  .training-list li {
+    font-size: 0.82rem;
+    color: var(--text-mid);
+    padding: 0.4rem 0;
+    border-bottom: 1px solid var(--border);
+    display: flex;
+    align-items: center;
+    gap: 0.6rem;
+  }
+
+  .training-list li::before {
+    content: '';
+    width: 5px; height: 5px;
+    border-radius: 50%;
+    background: var(--teal);
+    flex-shrink: 0;
+  }
+
+  /* CONTACT */
+  .contact-section {
+    background: var(--navy);
+    padding: 6rem 3rem;
+    text-align: center;
+  }
+
+  .contact-inner {
+    max-width: 600px;
+    margin: 0 auto;
+  }
+
+  .contact-heading {
+    font-family: 'Playfair Display', serif;
+    font-size: 2.4rem;
+    color: var(--white);
+    margin-bottom: 1rem;
+  }
+
+  .contact-sub {
+    font-size: 0.95rem;
+    color: rgba(255,255,255,0.55);
+    margin-bottom: 2.5rem;
+    line-height: 1.7;
+  }
+
+  .contact-row {
+    display: flex;
+    justify-content: center;
+    gap: 1.5rem;
+    flex-wrap: wrap;
+  }
+
+  .contact-item {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    color: var(--gold-light);
+    font-size: 0.9rem;
+    text-decoration: none;
+    transition: color 0.2s;
+  }
+
+  .contact-item:hover { color: var(--white); }
+
+  /* FOOTER */
+  footer {
+    background: var(--navy);
+    border-top: 1px solid rgba(255,255,255,0.06);
+    padding: 1.5rem 3rem;
+    text-align: center;
+  }
+
+  footer p {
+    font-size: 0.78rem;
+    color: rgba(255,255,255,0.3);
+  }
+
+  /* ANIMATIONS */
+  @keyframes fadeInUp {
+    from { opacity: 0; transform: translateY(20px); }
+    to { opacity: 1; transform: translateY(0); }
+  }
+
+  .animate { animation: fadeInUp 0.7s ease both; }
+  .delay-1 { animation-delay: 0.1s; }
+  .delay-2 { animation-delay: 0.25s; }
+  .delay-3 { animation-delay: 0.4s; }
+  .delay-4 { animation-delay: 0.55s; }
+  .delay-5 { animation-delay: 0.7s; }
+
+  /* RESPONSIVE */
+  @media (max-width: 860px) {
+    nav { padding: 0 1.5rem; }
+    .nav-links { display: none; }
+    .hero { padding: 90px 1.5rem 3rem; }
+    .hero-grid { grid-template-columns: 1fr; gap: 3rem; }
+    .light-section, #investsight, .contact-section { padding: 4rem 1.5rem; }
+    .investsight-grid { grid-template-columns: 1fr; }
+    footer { padding: 1.5rem; }
+  }
+</style>
+</head>
+<body>
+
+<!-- NAV -->
+<nav>
+  <div class="nav-logo">Graham Hensher</div>
+  <ul class="nav-links">
+    <li class="nav-item"><a href="#experience">Experience</a></li>
+    <li class="nav-item"><a href="#skills">Skills</a></li>
+    <li class="nav-item"><a href="#recommendations">Recommendations</a></li>
+    <li class="nav-item">
+      <a href="#projects" style="cursor:pointer;">Projects WIP <span class="nav-arrow">▼</span></a>
+      <div class="dropdown">
+        <div class="dropdown-inner">
+          <a href="#investsight">InvestSight</a>
+        </div>
+      </div>
+    </li>
+    <li class="nav-item"><a href="#contact">Contact</a></li>
+  </ul>
+</nav>
+
+<!-- HERO -->
+<section class="hero">
+  <div class="hero-grid">
+    <div>
+      <div class="hero-eyebrow animate">EMEA · B2B SaaS · 25+ Years</div>
+      <h1 class="hero-name animate delay-1">Graham<br>Hensher</h1>
+      <p class="hero-title animate delay-2">Pre-Sales &amp; Professional Services Leader</p>
+      <p class="hero-summary animate delay-3">Proven senior B2B SaaS leader building and scaling high-performing teams across Presales, Professional Services, and Customer Success in EMEA. Rooted in coaching, high-trust culture, and developing exceptional people.</p>
+      <div class="hero-cta-row animate delay-4">
+        <a href="#experience" class="btn-gold">View Experience</a>
+        <a href="#contact" class="btn-outline">Get in Touch</a>
+      </div>
+    </div>
+    <div class="hero-stats animate delay-5">
+      <div class="stat-card">
+        <div class="stat-number">25+</div>
+        <div class="stat-label">Years in enterprise B2B SaaS leadership</div>
+      </div>
+      <div class="stat-card accent">
+        <div class="stat-number">$50M+</div>
+        <div class="stat-label">Annual revenue influenced in EMEA</div>
+      </div>
+      <div class="stat-card accent">
+        <div class="stat-number">25+</div>
+        <div class="stat-label">Team members scaled &amp; mentored</div>
+      </div>
+      <div class="stat-card">
+        <div class="stat-number">88%</div>
+        <div class="stat-label">Renewal rate on $60M ARR portfolio</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- EXPERIENCE -->
+<section id="experience" class="light-section">
+  <div class="section-inner">
+    <div class="section-header">
+      <div class="section-eyebrow">Career History</div>
+      <h2 class="section-title">Work Experience</h2>
+      <p class="section-subtitle">A track record of founding new functions, scaling teams, and driving revenue across EMEA's most complex enterprise environments.</p>
+    </div>
+
+    <div class="timeline">
+
+      <div class="timeline-item">
+        <div class="timeline-dot"></div>
+        <div class="timeline-meta">
+          <span class="timeline-date">Nov 2019 – Jul 2025</span>
+          <span class="timeline-company">Pluralsight</span>
+        </div>
+        <div class="timeline-role">Head of EMEA Presales</div>
+        <div class="timeline-body">
+          Built a high-performing team of Solution Consultants and Technical Account Managers partnering with 58 sales reps to directly influence $25–50M in annual revenue. Led the key technical function across UK&I, Nordics, DACH, and France — driving continuous solutioning from in-depth discovery and pilot programmes through to detailed proposals and security compliance. Served as the key interface into Product, managing all regional escalations. Conceived and sponsored a global Expert Group Programme (PEG) across Presales, sponsoring groups in Generative AI, Integration, Solution Development, Value Engineering, and Security.
+        </div>
+        <div class="timeline-highlights">
+          <span class="tag">$25–50M Revenue Influenced</span>
+          <span class="tag">58 Sales Partners</span>
+          <span class="tag">Gen AI PEG</span>
+          <span class="tag blue">EMEA Presales Leadership</span>
+        </div>
+      </div>
+
+      <div class="timeline-item teal">
+        <div class="timeline-dot"></div>
+        <div class="timeline-meta">
+          <span class="timeline-date">Apr 2018 – Nov 2019</span>
+          <span class="timeline-company">Pluralsight</span>
+        </div>
+        <div class="timeline-role">Head of EMEA Customer Success</div>
+        <div class="timeline-body">
+          Recruited as part of the EMEA Leadership team to lead Customer Success, Professional Services, and Presales. Founded the new Professional Services team in EMEA and scaled the overall organisation to 25+ professionals. Navigated rapid growth and a successful IPO, consistently exceeding KPIs. Managed approximately $60M ARR renewal portfolio at an 88% renewal rate.
+        </div>
+        <div class="timeline-highlights">
+          <span class="tag">$60M ARR · 88% Renewal Rate</span>
+          <span class="tag">Team of 25+ Built</span>
+          <span class="tag blue">IPO Period Leadership</span>
+        </div>
+      </div>
+
+      <div class="timeline-item">
+        <div class="timeline-dot"></div>
+        <div class="timeline-meta">
+          <span class="timeline-date">Nov 2014 – Mar 2018</span>
+          <span class="timeline-company">Qlik</span>
+        </div>
+        <div class="timeline-role">Practice Director, EMEA Services Innovation</div>
+        <div class="timeline-body">
+          Led a new Advanced Technology team across EMEA to drive awareness and first customer implementations of Qlik Sense. A team of Web Development, UX/UI Design, BI Consulting, and Data Analytics specialists delivered advanced analytics solutions to enterprise customers. Estimated to have influenced more than $35M in net new Qlik Sense revenue, with approximately $8M in Professional Services revenue impact.
+        </div>
+        <div class="timeline-highlights">
+          <span class="tag">$35M+ New Revenue Influenced</span>
+          <span class="tag">$8M PS Revenue</span>
+          <span class="tag blue">Qlik Sense Launch</span>
+        </div>
+      </div>
+
+      <div class="timeline-item teal">
+        <div class="timeline-dot"></div>
+        <div class="timeline-meta">
+          <span class="timeline-date">Mar 2012 – Sep 2014</span>
+          <span class="timeline-company">CA Technologies</span>
+        </div>
+        <div class="timeline-role">Practice Director, EMEA Services – DevOps</div>
+        <div class="timeline-body">
+          Established and led a new EMEA-wide Professional Services team, hiring across UK, Central Europe, and Iberia. Drove adoption of DevOps solutions including Service Virtualisation and Release Automation, securing and delivering approximately $2M in PS revenue annually.
+        </div>
+        <div class="timeline-highlights">
+          <span class="tag">$2M Annual PS Revenue</span>
+          <span class="tag blue">DevOps · Service Virtualisation</span>
+        </div>
+      </div>
+
+      <div class="timeline-item">
+        <div class="timeline-dot"></div>
+        <div class="timeline-meta">
+          <span class="timeline-date">Aug 2008 – Mar 2012</span>
+          <span class="timeline-company">TIBCO</span>
+        </div>
+        <div class="timeline-role">Services Practice Director</div>
+        <div class="timeline-body">
+          Spanned Presales line management and Professional Services business development across the UK and Middle East, delivering in excess of $5M per year in revenue. Core areas included BPM, SOA, Complex Events Processing, Master Data Management, and Business Intelligence.
+        </div>
+        <div class="timeline-highlights">
+          <span class="tag">$5M+ Annual Revenue</span>
+          <span class="tag blue">BPM · SOA · CEP · MDM · BI</span>
+        </div>
+      </div>
+
+      <div class="timeline-item teal">
+        <div class="timeline-dot"></div>
+        <div class="timeline-meta">
+          <span class="timeline-date">1998 – 2008</span>
+          <span class="timeline-company">Early Career</span>
+        </div>
+        <div class="timeline-role">Solution Delivery, Programme &amp; Services Management</div>
+        <div class="timeline-body">
+          Roles spanning IBM (Principal Support Account Manager, Professional Services Manager — including IBM LifeSaver, Team Player &amp; Extraordinary ratings), Amdocs/Solect (Programme Manager), and TIBCO/Staffware (Solution Delivery Manager). Built foundational expertise across enterprise services delivery, technical account management, and programme management.
+        </div>
+        <div class="timeline-highlights">
+          <span class="tag">IBM · Amdocs · Staffware</span>
+          <span class="tag blue">Programme Management · Account Management</span>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- SKILLS -->
+<section id="skills" class="light-section alt">
+  <div class="section-inner">
+    <div class="section-header">
+      <div class="section-eyebrow">Capabilities</div>
+      <h2 class="section-title">Skills &amp; Expertise</h2>
+    </div>
+    <div class="skills-grid">
+      <div class="skill-group">
+        <div class="skill-group-title">Leadership &amp; Strategy</div>
+        <ul class="skill-list">
+          <li class="skill-pill">Pre &amp; Post-Sales Leadership</li>
+          <li class="skill-pill">Building High-Performing Teams</li>
+          <li class="skill-pill">Strategic Sales Partnerships</li>
+          <li class="skill-pill">Programme Management</li>
+          <li class="skill-pill">Global Team Leadership</li>
+        </ul>
+      </div>
+      <div class="skill-group">
+        <div class="skill-group-title">Customer &amp; Revenue Growth</div>
+        <ul class="skill-list">
+          <li class="skill-pill">Solution Consulting</li>
+          <li class="skill-pill">Customer Success</li>
+          <li class="skill-pill">Professional Services</li>
+          <li class="skill-pill">Technical Account Management</li>
+          <li class="skill-pill">Value Engineering</li>
+        </ul>
+      </div>
+      <div class="skill-group">
+        <div class="skill-group-title">Interpersonal &amp; Operational</div>
+        <ul class="skill-list">
+          <li class="skill-pill">Coaching &amp; Mentoring</li>
+          <li class="skill-pill">Cross-Functional Collaboration</li>
+          <li class="skill-pill">Culture Building</li>
+          <li class="skill-pill">Stakeholder Management</li>
+          <li class="skill-pill">Executive Communication</li>
+        </ul>
+      </div>
+      <div class="skill-group">
+        <div class="skill-group-title">Technical Acumen</div>
+        <ul class="skill-list">
+          <li class="skill-pill">Software Engineering</li>
+          <li class="skill-pill">Cloud Computing</li>
+          <li class="skill-pill">Generative AI</li>
+          <li class="skill-pill">DevOps &amp; Service Virtualisation</li>
+          <li class="skill-pill">BPM · SOA · Data &amp; Analytics</li>
+        </ul>
+      </div>
+      <div class="skill-group">
+        <div class="skill-group-title">Sales Methodologies</div>
+        <ul class="skill-list">
+          <li class="skill-pill">Customer Centric Selling</li>
+          <li class="skill-pill">Value Selling</li>
+          <li class="skill-pill">MEDDPPIC</li>
+          <li class="skill-pill">Enterprise Discovery</li>
+          <li class="skill-pill">Pilot Programme Design</li>
+        </ul>
+      </div>
+      <div class="skill-group">
+        <div class="skill-group-title">EMEA Markets</div>
+        <ul class="skill-list">
+          <li class="skill-pill">UK &amp; Ireland</li>
+          <li class="skill-pill">Nordics</li>
+          <li class="skill-pill">DACH</li>
+          <li class="skill-pill">France</li>
+          <li class="skill-pill">Iberia &amp; Middle East</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- RECOMMENDATIONS -->
+<section id="recommendations" class="light-section">
+  <div class="section-inner">
+    <div class="section-header">
+      <div class="section-eyebrow">What Others Say</div>
+      <h2 class="section-title">Recommendations</h2>
+      <p class="section-subtitle">Words from colleagues, direct reports, and senior leaders across two decades of partnerships.</p>
+    </div>
+    <div class="recs-grid">
+
+      <div class="rec-card">
+        <p class="rec-quote">He completely transformed the presales function into a strategic pillar of the organisation. Graham possesses the strategic acumen to operate effectively at all levels — the key conduit for managing complex product requests and ensuring the voice of the customer was central to product development.</p>
+        <div class="rec-author">
+          <span class="rec-name">Marion van Leeuwen-Kemmere</span>
+          <span class="rec-role">VP Global Accounts, Pluralsight</span>
+        </div>
+      </div>
+
+      <div class="rec-card">
+        <p class="rec-quote">Graham is an exceptional and highly accomplished pre and post-sales senior leader. Strategic, customer-focused, and compassionate. His talent retention levels were the best in the company — he excels at making complex scenarios clear and actionable.</p>
+        <div class="rec-author">
+          <span class="rec-name">Mark Wynne</span>
+          <span class="rec-role">EVP of Revenue, Pluralsight</span>
+        </div>
+      </div>
+
+      <div class="rec-card">
+        <p class="rec-quote">What stands out about Graham is his ability to make complex sales and retention scenarios feel clear and actionable. He's a strong communicator who brings teams together across time zones and functions, with a sense of ease and humility that makes him a pleasure to work with.</p>
+        <div class="rec-author">
+          <span class="rec-name">Ryan Haber</span>
+          <span class="rec-role">Product Management Leadership, Pluralsight</span>
+        </div>
+      </div>
+
+      <div class="rec-card">
+        <p class="rec-quote">One of the most valuable aspects as a manager is that Graham has a great rare ability — to mentor by example. An excellent professional who always seeks to deliver the highest value to customers. An excellent professional and brilliant person.</p>
+        <div class="rec-author">
+          <span class="rec-name">Sergi Vives</span>
+          <span class="rec-role">Customer Success Manager, formerly Qlik</span>
+        </div>
+      </div>
+
+      <div class="rec-card">
+        <p class="rec-quote">He is a great communicator with an unerring ability to clearly define what needs to be done and motivate those around him to deliver. I have no hesitation in recommending Graham as a truly professional person.</p>
+        <div class="rec-author">
+          <span class="rec-name">Martin Weaver</span>
+          <span class="rec-role">Founder, CT ECO Plus — formerly TIBCO</span>
+        </div>
+      </div>
+
+      <div class="rec-card">
+        <p class="rec-quote">Graham is a technically astute manager that collaborates well to solve problems and drive deals to a successful conclusion. A hands-on tactical leader with a high level of emotional intelligence that enables him to resolve issues in a constructive and diplomatic manner.</p>
+        <div class="rec-author">
+          <span class="rec-name">Lisa Xygalas</span>
+          <span class="rec-role">Director, Senior Legal Counsel at PwC Australia</span>
+        </div>
+      </div>
+
+      <div class="rec-card">
+        <p class="rec-quote">Graham built an extraordinary services team from the ground up in a short timescale. Under his leadership the team developed extraordinary solutions incorporating compelling UI designs which left customers coming back for further engagements. I thoroughly recommend Graham for services leadership roles.</p>
+        <div class="rec-author">
+          <span class="rec-name">Jonas Jonsson</span>
+          <span class="rec-role">Senior Director EMEA, RedHat — formerly Qlik</span>
+        </div>
+      </div>
+
+      <div class="rec-card">
+        <p class="rec-quote">Graham's all-round expertise on understanding client objectives, working with sales and pre-sales to shape delivery, and working with the client through to successful delivery is not so easy to find in the industry. I would strongly recommend Graham.</p>
+        <div class="rec-author">
+          <span class="rec-name">Mukesh Gehlot</span>
+          <span class="rec-role">CEO, Integration & Automation Consultancy</span>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- PROJECTS WIP -->
+<section id="projects" style="background:var(--navy); padding:0;">
+  <div style="background:rgba(255,255,255,0.03); border-bottom:1px solid rgba(201,168,76,0.15); padding:2.5rem 3rem 2rem;">
+    <div style="max-width:1100px; margin:0 auto;">
+      <div class="section-label label-gold" style="margin-bottom:0.75rem;">Work in Progress</div>
+      <h2 style="font-family:'Playfair Display',serif; font-size:clamp(1.6rem,3vw,2.2rem); color:var(--white); font-weight:700; line-height:1.2;">Projects</h2>
+      <p style="font-size:0.9rem; color:rgba(255,255,255,0.45); margin-top:0.5rem;">Ventures and platforms currently under development.</p>
+    </div>
+  </div>
+  <div id="investsight" style="padding:4rem 3rem;">
+    <div class="investsight-inner">
+      <div class="section-label label-teal">Featured Project</div>
+      <h2 class="investsight-heading">InvestSight<span> — Coming Soon</span></h2>
+      <p class="investsight-description">InvestSight is a knowledge and insight platform currently in development. This space is reserved for its launch — showcasing example work, artefacts, and demonstrations that bring together decades of enterprise experience with modern AI-driven tooling.</p>
+      <div class="investsight-grid">
+        <div class="feature-card">
+          <div class="feature-icon">⚡</div>
+          <div class="feature-title">Enterprise Intelligence</div>
+          <div class="feature-desc">Curated insights from the front lines of EMEA enterprise sales, presales, and customer success.</div>
+        </div>
+        <div class="feature-card">
+          <div class="feature-icon">🔍</div>
+          <div class="feature-title">Solution Frameworks</div>
+          <div class="feature-desc">Proven methodologies for discovery, piloting, and securing complex enterprise deals across EMEA markets.</div>
+        </div>
+        <div class="feature-card">
+          <div class="feature-icon">🌍</div>
+          <div class="feature-title">EMEA Market Perspective</div>
+          <div class="feature-desc">Deep understanding of UK&amp;I, Nordics, DACH, and France — tailored go-to-market insights for each region.</div>
+        </div>
+      </div>
+      <div class="investsight-placeholder">
+        <p>Example work, artefacts, and case studies will appear here as InvestSight develops.</p>
+        <a href="#contact" class="btn-gold">Register your interest</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ACHIEVEMENTS -->
+<section class="light-section alt">
+  <div class="section-inner">
+    <div class="section-header">
+      <div class="section-eyebrow">Recognition</div>
+      <h2 class="section-title">Awards &amp; Achievements</h2>
+    </div>
+    <div class="awards-grid">
+      <div class="award-item"><div class="award-dot"></div><div class="award-text">Pluralsight Sales &amp; Success Achiever Award</div></div>
+      <div class="award-item"><div class="award-dot"></div><div class="award-text">Qlik Roadshow &amp; Annual Sales Kickoff — Innovation Slot</div></div>
+      <div class="award-item"><div class="award-dot"></div><div class="award-text">TIBCO Regional Award — flagship new product implementation</div></div>
+      <div class="award-item"><div class="award-dot"></div><div class="award-text">IBM Regional Achievement Award &amp; rating of 'Extraordinary'</div></div>
+      <div class="award-item"><div class="award-dot"></div><div class="award-text">IBM LifeSaver Award</div></div>
+      <div class="award-item"><div class="award-dot"></div><div class="award-text">IBM Team Player Award</div></div>
+    </div>
+  </div>
+</section>
+
+<!-- EDUCATION -->
+<section class="light-section">
+  <div class="section-inner">
+    <div class="section-header">
+      <div class="section-eyebrow">Education &amp; Training</div>
+      <h2 class="section-title">Qualifications</h2>
+    </div>
+    <div class="edu-row">
+      <div class="edu-card featured">
+        <div class="edu-degree">Bachelor of Computing &amp; Information Systems</div>
+        <div class="edu-inst">Griffith University, Australia</div>
+        <div class="edu-detail">Major in Software Engineering — a technical foundation that enables credible engagement with customers, Product, and Engineering at all levels.</div>
+      </div>
+      <div class="edu-card" style="flex:2;">
+        <div class="edu-degree">Professional Training &amp; Certifications</div>
+        <div class="edu-inst" style="margin-bottom:1rem;">Selected programmes</div>
+        <ul class="training-list">
+          <li>Sales Methodology: Customer Centric Selling, Value Selling, MEDDPPIC</li>
+          <li>Pluralsight Leadership Training</li>
+          <li>Qlik Accelerated Leader Development Program</li>
+          <li>Accredited PRINCE2 — Foundation &amp; Practitioner</li>
+          <li>IBM Advanced Project Management</li>
+          <li>IBM AVM (Accelerated Value Method) Academy</li>
+          <li>Selling, Presenting and Negotiating</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- CONTACT -->
+<section id="contact" class="contact-section">
+  <div class="contact-inner">
+    <h2 class="contact-heading">Let's Connect</h2>
+    <p class="contact-sub">Actively seeking EMEA leadership roles in Presales / Solutions Engineering or Professional Services within high-growth B2B SaaS. Open to conversations about how I can help scale your organisation.</p>
+    <div class="contact-row">
+      <a href="mailto:Graham.Hensher@gmail.com" class="contact-item">
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="4" width="20" height="16" rx="2"/><path d="m22 7-8.97 5.7a1.94 1.94 0 0 1-2.06 0L2 7"/></svg>
+        Graham.Hensher@gmail.com
+      </a>
+      <a href="tel:+447305926309" class="contact-item">
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07A19.5 19.5 0 0 1 4.14 14a19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 3.07 3h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L7.91 10.9a16 16 0 0 0 5.71 5.71l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
+        +44 7305 926 309
+      </a>
+      <a href="https://www.linkedin.com/in/graham-hensher/" target="_blank" rel="noopener" class="contact-item">
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"/><rect x="2" y="9" width="4" height="12"/><circle cx="4" cy="4" r="2"/></svg>
+        LinkedIn Profile
+      </a>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <p>© 2026 Graham Hensher · EMEA Pre-Sales &amp; Professional Services Leader</p>
+</footer>
+
+</body>
+</html>
