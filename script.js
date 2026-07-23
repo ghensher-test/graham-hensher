@@ -1,0 +1,12 @@
+const menuButton=document.querySelector('.menu-button');
+const nav=document.querySelector('#site-nav');
+menuButton?.addEventListener('click',()=>{const open=nav.classList.toggle('open');menuButton.setAttribute('aria-expanded',String(open));});
+nav?.querySelectorAll('a').forEach(a=>a.addEventListener('click',()=>{nav.classList.remove('open');menuButton?.setAttribute('aria-expanded','false');}));
+document.querySelector('#year').textContent=new Date().getFullYear();
+const observer=new IntersectionObserver(entries=>entries.forEach(entry=>{if(entry.isIntersecting){entry.target.classList.add('visible');observer.unobserve(entry.target);}}),{threshold:.12});
+document.querySelectorAll('.reveal').forEach(el=>observer.observe(el));
+const dialog=document.querySelector('#image-dialog');
+const dialogImage=dialog.querySelector('img');
+document.querySelectorAll('.showcase').forEach(button=>button.addEventListener('click',()=>{dialogImage.src=button.dataset.image;dialogImage.alt=button.dataset.alt||'';dialog.showModal();}));
+dialog.querySelector('.dialog-close').addEventListener('click',()=>dialog.close());
+dialog.addEventListener('click',event=>{if(event.target===dialog)dialog.close();});
